@@ -1,0 +1,3 @@
+1. using "ng new project-name" to create a new project.
+2. using "npm install --save bootstrap" to install bootstrap.
+3. in ".angular-cli.json" add bootstrap module under "styles".
