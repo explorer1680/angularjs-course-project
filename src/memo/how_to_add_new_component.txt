@@ -1,0 +1,8 @@
+If you add component manually, don't forget add component in app.module.ts declarations.
+
+using:
+ng g c recipes --spec false
+to add component by cli, "--spect false" to prevent creating test files.
+
+ng g c recipes/recipe-list --spec false
+to add a recipe-list component under the recipes folder.
