@@ -23,11 +23,11 @@ import { AppRoutingModule } from './app-routing.module';
     RecipeItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    DropdownDirective,
-    AppRoutingModule
+    DropdownDirective
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+        AppRoutingModule
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]
