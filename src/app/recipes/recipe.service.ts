@@ -7,7 +7,7 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 export class RecipeService {
     recipeSelected = new EventEmitter<Recipe>();
 
-    constructor(private shoppingListService: ShoppingListService){}
+    constructor(private shoppingListService: ShoppingListService) { }
 
     private recipes: Recipe[] = [
         new Recipe('A Test Recipe',
@@ -30,7 +30,11 @@ export class RecipeService {
         return this.recipes.slice(); //this return a new array, which will exactly the copy of the original array.
     }
 
-    addIngredientsToShoppingList(ingredients: Ingredient[]){
+    getRecipe(index: number) {
+        return this.recipes[index];
+    }
+
+    addIngredientsToShoppingList(ingredients: Ingredient[]) {
         this.shoppingListService.addIngredients(ingredients);
     }
 }
