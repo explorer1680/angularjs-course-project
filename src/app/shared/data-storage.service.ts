@@ -9,6 +9,6 @@ export class DataStorageService{
     constructor(private http: Http, private recipeService: RecipeService){}
 
     storeRecipes(){
-        return this.http.put('/recipes.json', this.recipeService.getRecipes());
+        return this.http.put('https://ng-recipe-book-a8294.firebaseio.com/recipes.json', this.recipeService.getRecipes());
     }
 }
