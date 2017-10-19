@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
+import { AuthGuard } from './auth/auth-guard.service';
 
 
 
@@ -24,6 +25,7 @@ import { CoreModule } from './core/core.module';
     AuthModule,
     CoreModule
   ],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
