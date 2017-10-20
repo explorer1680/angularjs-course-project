@@ -13,9 +13,9 @@ const initialState = {
 export function shoppingListReducer(state = initialState, action: ShoppingListAcitons.ShoppingListActions) {
     switch (action.type) {
         case ShoppingListAcitons.ADD_INGREDIENT:
-            return {
-                ...state,
-                ingredients: [...state.ingredients, action.payload]
+            return { 
+                ...state, //return the old state as the first parameter.
+                ingredients: [...state.ingredients, action.payload] //and specify which part you want to change in the second parameter.
             }
         default:
             return state;
