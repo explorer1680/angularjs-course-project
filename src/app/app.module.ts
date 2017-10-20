@@ -9,6 +9,8 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { AuthGuard } from './auth/auth-guard.service';
+import { StoreModule } from '@ngrx/store';
+import { shoppingListReducer } from './shopping-list/store/shopping-list.reducers';
 
 
 
@@ -23,7 +25,8 @@ import { AuthGuard } from './auth/auth-guard.service';
     SharedModule,
     ShoppingListModule,
     AuthModule,
-    CoreModule
+    CoreModule,
+    StoreModule.forRoot({shoppingList: shoppingListReducer})
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
