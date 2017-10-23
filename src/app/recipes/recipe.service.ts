@@ -3,13 +3,16 @@ import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
 import { Subject } from 'rxjs/Subject';
+import { Store } from '@ngrx/store';
+import * as ShoppingListActions from '../shopping-list/store/shopping-list.actions';
 
 @Injectable()
 export class RecipeService {
     // recipeSelected = new EventEmitter<Recipe>();
     recipesChanged = new Subject<Recipe[]>();
 
-    constructor(private shoppingListService: ShoppingListService) { }
+    constructor(//private shoppingListService: ShoppingListService,
+        private store: Store<{ shoppingList: { ingredients: Ingredient[] } }>) { }
 
     private recipes: Recipe[] = [
         new Recipe('A Test Recipe',
@@ -27,7 +30,7 @@ export class RecipeService {
             ])
     ];
 
-    setRecipes(recipes: Recipe[]){
+    setRecipes(recipes: Recipe[]) {
         this.recipes = recipes;
         this.recipesChanged.next(this.recipes.slice());
     }
@@ -41,15 +44,16 @@ export class RecipeService {
     }
 
     addIngredientsToShoppingList(ingredients: Ingredient[]) {
-        this.shoppingListService.addIngredients(ingredients);
+        // this.shoppingListService.addIngredients(ingredients);
+        this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
     }
 
-    addRecipe(recipe: Recipe){
+    addRecipe(recipe: Recipe) {
         this.recipes.push(recipe);
         this.recipesChanged.next(this.recipes.slice());
     }
 
-    updateRecipe(index: number, newRecipe: Recipe){
+    updateRecipe(index: number, newRecipe: Recipe) {
         this.recipes[index] = newRecipe;
         this.recipesChanged.next(this.recipes.slice());
     }

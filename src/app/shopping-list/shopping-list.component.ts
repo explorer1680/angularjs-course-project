@@ -11,10 +11,10 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.css']
 })
-export class ShoppingListComponent implements OnInit, OnDestroy {
+export class ShoppingListComponent implements OnInit {//, OnDestroy {
   // ingredients: Ingredient[];
   shoppingListState: Observable<{ingredients: Ingredient[]}>;
-  private subscription: Subscription;
+  // private subscription: Subscription;
 
   constructor(private shoppingListService: ShoppingListService, private store: Store<{shoppingList: {ingredients: Ingredient[]}}>) { }
 
@@ -26,9 +26,9 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     // );
   }
 
-  ngOnDestroy(){
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy(){
+  //   this.subscription.unsubscribe();
+  // }
 
   onEditItem(index: number){
     this.shoppingListService.startedEditing.next(index);
