@@ -6,13 +6,13 @@ import { Subject } from 'rxjs/Subject';
 import { Store } from '@ngrx/store';
 import * as ShoppingListActions from '../shopping-list/store/shopping-list.actions';
 
-@Injectable()
+// @Injectable()
 export class RecipeService {
     // recipeSelected = new EventEmitter<Recipe>();
     recipesChanged = new Subject<Recipe[]>();
 
-    constructor(//private shoppingListService: ShoppingListService,
-        private store: Store<{ shoppingList: { ingredients: Ingredient[] } }>) { }
+    constructor(){}//private shoppingListService: ShoppingListService,
+        // private store: Store<{ shoppingList: { ingredients: Ingredient[] } }>) { }
 
     private recipes: Recipe[] = [
         new Recipe('A Test Recipe',
@@ -43,10 +43,10 @@ export class RecipeService {
         return this.recipes[index];
     }
 
-    addIngredientsToShoppingList(ingredients: Ingredient[]) {
-        // this.shoppingListService.addIngredients(ingredients);
-        this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
-    }
+    // addIngredientsToShoppingList(ingredients: Ingredient[]) {
+    //     // this.shoppingListService.addIngredients(ingredients);
+    //     this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
+    // }
 
     addRecipe(recipe: Recipe) {
         this.recipes.push(recipe);
