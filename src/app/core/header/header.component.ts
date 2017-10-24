@@ -10,9 +10,9 @@ import { AuthService } from '../../auth/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-    authService2 : AuthService;
+    // authService2 : AuthService;
 
-    constructor(private dataStorageService: DataStorageService, private authService: AuthService){}
+    constructor(private dataStorageService: DataStorageService, public authService: AuthService){}
 
     onSaveData(){
         this.dataStorageService.storeRecipes().subscribe(
@@ -31,6 +31,6 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit(){
-        this.authService2 = this.authService;
+        // this.authService2 = this.authService;
     }
 }
