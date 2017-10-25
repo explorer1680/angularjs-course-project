@@ -8,6 +8,8 @@ import * as fromAuth from './store/auth.reducers';
 @Injectable()
 export class AuthGuard implements CanActivate, CanLoad {
 
+    private isAuthenticated:boolean;
+
     // constructor(private authService: AuthService) {}
     constructor(private store: Store<fromApp.AppState>) { }
 
@@ -20,8 +22,9 @@ export class AuthGuard implements CanActivate, CanLoad {
 
     canLoad(route: Route) {
         // return this.authService.isAuthenticated();
-        return this.store.select('auth').map((authState: fromAuth.State) => {
-            return authState.authenticated;
+        this.store.select('auth').subscribe( (value: fromAuth.State) =>{
+            this.isAuthenticated = value.authenticated;
         });
+        return this.isAuthenticated;
     }
 }
