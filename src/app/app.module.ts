@@ -11,6 +11,8 @@ import { CoreModule } from './core/core.module';
 import { AuthGuard } from './auth/auth-guard.service';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/app.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './auth/store/auth.effects';
 
 
 
@@ -26,7 +28,8 @@ import { reducers } from './store/app.reducers';
     ShoppingListModule,
     AuthModule,
     CoreModule,
-    StoreModule.forRoot(reducers)
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([AuthEffects])
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
