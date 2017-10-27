@@ -39,27 +39,27 @@ export class RecipeService {
         return this.recipes.slice(); //this return a new array, which will exactly the copy of the original array.
     }
 
-    getRecipe(index: number) {
-        return this.recipes[index];
-    }
-
-    // addIngredientsToShoppingList(ingredients: Ingredient[]) {
-    //     // this.shoppingListService.addIngredients(ingredients);
-    //     this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
+    // getRecipe(index: number) {
+    //     return this.recipes[index];
     // }
 
-    addRecipe(recipe: Recipe) {
-        this.recipes.push(recipe);
-        this.recipesChanged.next(this.recipes.slice());
-    }
+    // // addIngredientsToShoppingList(ingredients: Ingredient[]) {
+    // //     // this.shoppingListService.addIngredients(ingredients);
+    // //     this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
+    // // }
 
-    updateRecipe(index: number, newRecipe: Recipe) {
-        this.recipes[index] = newRecipe;
-        this.recipesChanged.next(this.recipes.slice());
-    }
+    // addRecipe(recipe: Recipe) {
+    //     this.recipes.push(recipe);
+    //     this.recipesChanged.next(this.recipes.slice());
+    // }
 
-    deleteRecipe(index: number) {
-        this.recipes.splice(index, 1);
-        this.recipesChanged.next(this.recipes.slice());
-    }
+    // updateRecipe(index: number, newRecipe: Recipe) {
+    //     this.recipes[index] = newRecipe;
+    //     this.recipesChanged.next(this.recipes.slice());
+    // }
+
+    // deleteRecipe(index: number) {
+    //     this.recipes.splice(index, 1);
+    //     this.recipesChanged.next(this.recipes.slice());
+    // }
 }
