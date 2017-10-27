@@ -2,6 +2,7 @@ import { Actions, Effect } from '@ngrx/effects';
 
 import * as RecipeActions from '../store/recipe.actions';
 import 'rxjs/add/operator/switchMap';
+import { Injectable } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../store/app.reducers';
@@ -9,6 +10,7 @@ import * as fromAuth from '../../auth/store/auth.reducers';
 import { Http, Response } from '@angular/http';
 import { Recipe } from '../../recipes/recipe.model';
 
+@Injectable()
 export class RecipeEffects {
     private token = null;
 
@@ -37,5 +39,5 @@ export class RecipeEffects {
 
     constructor(private actions$: Actions,
     private store: Store<fromApp.AppState>,
-    private http: Http,){}
+    private http: Http){}
 }
