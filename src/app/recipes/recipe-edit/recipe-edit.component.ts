@@ -6,7 +6,7 @@ import { RecipeService } from '../recipe.service';
 import { Recipe } from '../recipe.model';
 import * as RecipeActions from '../store/recipe.actions';
 import * as fromRecipe from '../store/recipe.reducers';
-import { Store } from '@ngrx/Store';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-recipe-edit',
