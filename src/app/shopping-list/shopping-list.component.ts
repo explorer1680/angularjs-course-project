@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 // import * as fromShoppingList from './store/shopping-list.reducers';
 import * as ShoppingListActions from './store/shopping-list.actions';
 import * as fromApp from '../store/app.reducers';
+import * as fromShoppingList from './store/shopping-list.reducers';
 
 
 @Component({
@@ -16,7 +17,8 @@ import * as fromApp from '../store/app.reducers';
 })
 export class ShoppingListComponent implements OnInit {//, OnDestroy {
   // ingredients: Ingredient[];
-  shoppingListState: Observable<{ingredients: Ingredient[]}>;
+  // shoppingListState: Observable<{ingredients: Ingredient[]}>;
+  shoppingListState: Observable<fromShoppingList.State>;
   // private subscription: Subscription;
 
   constructor(//private shoppingListService: ShoppingListService, 
